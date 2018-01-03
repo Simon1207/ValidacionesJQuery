@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Valida solo numeros</title>
+
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<script>
+   		$(document).ready(function(){ 
+$(".solo-numero").keydown(function(event) {
+   if(event.shiftKey)
+   {
+        event.preventDefault();
+   }
+ 
+   if (event.keyCode == 46 || event.keyCode == 8)    {
+   	$('input[type="submit"]').attr('disabled','disabled');
+   }
+   else {
+        if (event.keyCode < 95) {
+          if (event.keyCode < 48 || event.keyCode > 57) {
+                event.preventDefault();
+                $('input[type="submit"]').attr('disabled','disabled');
+          }
+        } 
+        else {
+              if (event.keyCode < 96 || event.keyCode > 105) {
+                  event.preventDefault();
+                  $('input[type="submit"]').attr('disabled','disabled');
+              }
+        }
+      }
+   });
+});
+</script>
+</head>
+<body>
+<p>Input que solo recibe caracteres numericos</p>
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >Actualizar matricula de personal</button>
+<!--Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Actualizar Matricula de personal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+          <fieldset disabled>	
+            <label for="recipient-name" class="form-control-label">Matricula Actual:</label>
+            <input class="form-control solo-numero"  type="text" value="" id="recipient-name" class="solo-numero" required="" maxlength="4"> 
+           </fieldset> 
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="form-control-label">Nueva matricula:</label>
+            <input class="form-control solo-numero" required="" minlength="4" maxlength="4" id="message-text"></input>
+          </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+	$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  
+  var modal = $(this)
+  modal.find('.modal-title').text('Actualizar Matricula de personal')
+  
+})
+</script>
+</body>
+</html>
