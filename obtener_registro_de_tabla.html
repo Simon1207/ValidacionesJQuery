@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	
+
+	<script type="text/javascript">
+		
+	</script>
+
+
+</head>
+<body>
+	<table class="table">
+		<tr>
+			<td>Nombre</td>
+			<td>Edad</td>
+			<td>Profesión</td>
+		</tr>
+
+		<tr>
+			<td>Simon</td>
+			<td>25</td>
+			<td>Programador</td>
+		</tr>
+
+		<tr>
+			<td>tona</td>
+			<td>30</td>
+			<td>vendedor</td>
+		</tr>
+
+		<tr>
+			<td>Julio</td>
+			<td>15</td>
+			<td>Diseñador</td>
+		</tr>
+	</table>
+<div id="resultado"></div>		
+
+<script>
+/*
+1.-columna determina el indice de la celda	
+2.-fila determina su indice y la variable.
+3.-Contenido almacena el contenido de la celda 
+que finalmente es mostrado al llamar resultado*/
+	$(function(){
+		$('table tr td').click(function(){
+			var columna=$(this).index();
+			var fila=$(this).parent('tr').index();
+			var contenido= $(this).html();
+			$('#resultado').html('Fila: '+fila+' Columna: '+columna+' Contenido: '+contenido);
+		
+		});
+	});
+</script>
+</body>
+</html>
