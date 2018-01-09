@@ -39,7 +39,9 @@
 			<td>Diseñador</td>
 		</tr>
 	</table>
+	
 <div id="resultado"></div>		
+
 
 <script>
 /*
@@ -53,9 +55,11 @@ que finalmente es mostrado al llamar resultado*/
 			var fila=$(this).parent('tr').index();
 			var contenido= $(this).html();
 			$('#resultado').html('Fila: '+fila+' Columna: '+columna+' Contenido: '+contenido);
-		
+			//se agina el dato de contenido a un input
+			$("#input").val(contenido);
 		});
 	});
 </script>
+<input id="input" type="text" value="" >
 </body>
 </html>
